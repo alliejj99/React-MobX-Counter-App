@@ -1,10 +1,9 @@
 import { observer } from "mobx-react";
+import { useCounterStore } from "./context/counterContext";
 import "./App.css";
 
-const App = observer((props) => {
-  const { myCounter } = props;
-
-  console.log(myCounter);
+const App = () => {
+  const myCounter = useCounterStore();
 
   return (
     <div className="App">
@@ -18,6 +17,6 @@ const App = observer((props) => {
       <button onClick={() => myCounter.decrease()}>-</button>
     </div>
   );
-});
+};
 
-export default App;
+export default observer(App);
